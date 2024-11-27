@@ -1,0 +1,25 @@
+type Query {
+    getUsers: [User]
+    getCategories: [Category]
+    getCategoriesByUser(userId: ID!): [Category]
+}
+
+type Mutation {
+    createUser(fullname: String!, email: String!, password: String!, phone: String!): User
+    updateUser(id: ID!, fullname: String, email: String, password: String, phone: String): User
+    deleteUser(id: ID!): Boolean
+}
+
+type User {
+    id: ID!
+    fullname: String!
+    email: String!
+    phone: String!
+    categories: [Category]
+}
+
+type Category {
+    id: ID!
+    name: String!
+    images: String!
+}
